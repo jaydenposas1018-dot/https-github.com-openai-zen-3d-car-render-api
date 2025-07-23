@@ -1,6 +1,6 @@
-import Replicate from "replicate";
+const Replicate = require("replicate");
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
@@ -17,7 +17,7 @@ export default async function handler(req, res) {
 
   try {
     const output = await replicate.run(
-      "cjwbw/controlnet:db21e45ee2434d2b5e97a7d1c94b9f682b145f6c978b6b1e46f04ce3f5c1ff2c", // <-- Use correct version slug
+      "cjwbw/controlnet:db21e45ee2434d2b5e97a7d1c94b9f682b145f6c978b6b1e46f04ce3f5c1ff2c",
       {
         input: {
           image: imageUrl,
@@ -28,10 +28,9 @@ export default async function handler(req, res) {
       }
     );
 
-    // Replicate may return an array of image URLs
     res.status(200).json({ renderUrl: output });
   } catch (err) {
     console.error("Rendering error:", err);
     res.status(500).json({ error: err.message });
   }
-}
+};
