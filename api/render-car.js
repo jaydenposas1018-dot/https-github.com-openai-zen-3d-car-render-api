@@ -17,7 +17,7 @@ export default async function handler(req, res) {
 
   try {
     const output = await replicate.run(
-  "cjwbw/controlnet:db21e45ee2434d2b5e97a7d1c94b9f682b145f6c978b6b1e46f04ce3f5c1ff2c",
+  "rossjillian/controlnet:795433b19458d0f4fa172a7ccf93178d2adb1cb8ab2ad6c8fdc33fdbcd49f477",
   {
     input: {
       image: imageUrl,
