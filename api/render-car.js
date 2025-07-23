@@ -17,7 +17,7 @@ export default async function handler(req, res) {
 
   try {
     const output = await replicate.run(
-  "cjwbw/controlnet", // <-- removed the version hash
+      "cjwbw/controlnet", // use default latest version
       {
         input: {
           image: imageUrl,
@@ -30,7 +30,11 @@ export default async function handler(req, res) {
 
     res.status(200).json({ renderUrl: output });
   } catch (error) {
-    console.error("Rendering error:", error);
-    res.status(500).json({ error: error?.message || "Unknown error" });
+    console.error("Rendering error:", error?.message || error);
+    res.status(500).json({
+      error:
+        error?.message ||
+        "Unknown error. Make sure your REPLICATE_API_TOKEN is valid and the model is accessible.",
+    });
   }
 }
