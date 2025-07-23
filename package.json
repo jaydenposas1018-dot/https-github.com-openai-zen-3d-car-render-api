@@ -7,6 +7,6 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "replicate": "^latest"
+    "replicate": "0.16.0"
   }
 }
