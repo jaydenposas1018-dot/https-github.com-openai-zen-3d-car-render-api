@@ -1,13 +1,13 @@
 import Replicate from "replicate";
 
+const replicate = new Replicate({
+  auth: process.env.REPLICATE_API_TOKEN,
+});
+
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
-
-  const replicate = new Replicate({
-    auth: process.env.REPLICATE_API_TOKEN,
-  });
 
   const { imageUrl, angle } = req.body;
 
@@ -23,14 +23,14 @@ export default async function handler(req, res) {
           image: imageUrl,
           prompt: `high detail render of a ${angle} view of a car, professional 3D modeled, photorealistic`,
           width: 768,
-          height: 768
-        }
+          height: 768,
+        },
       }
     );
 
     res.status(200).json({ renderUrl: output });
-  } catch (err) {
-    console.error("Rendering error:", err);
-    res.status(500).json({ error: err.message });
+  } catch (error) {
+    console.error("Rendering error:", error);
+    res.status(500).json({ error: error?.message || "Unknown error" });
   }
 }
