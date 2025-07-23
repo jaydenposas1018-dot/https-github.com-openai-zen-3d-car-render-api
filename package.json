@@ -1,7 +1,12 @@
 {
-  "name": "3d-car-render-api",
+  "name": "your-app-name",
   "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
-    "replicate": "^0.20.1"
+    "replicate": "^latest"
   }
 }
