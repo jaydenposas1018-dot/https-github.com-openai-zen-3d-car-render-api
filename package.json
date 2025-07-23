@@ -1,12 +1,11 @@
 {
-  "name": "your-app-name",
+  "name": "car-render-api",
   "version": "1.0.0",
+  "description": "API to receive a car image and return 3D-style render view data",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "start": "node index.js"
   },
-  "dependencies": {
-    "replicate": "0.16.0"
-  }
+  "dependencies": {}
 }
