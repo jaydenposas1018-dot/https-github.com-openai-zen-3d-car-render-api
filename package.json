@@ -2,6 +2,6 @@
   "name": "3d-car-render-api",
   "version": "1.0.0",
   "dependencies": {
-    "replicate": "^2.0.0"
+    "replicate": "^0.20.1"
   }
 }
